@@ -12,12 +12,13 @@ const Projects = () => {
       githubLink: "https://github.com/prabhjeet13/medisphere",
       deployLink: "https://medisphere-rho.vercel.app/",
       features: [
-        "Patient and doctor profiles with secure login and management",
-        "Appointment booking system with reminders and scheduling",
-        "Real-time chat for consultations with doctors",
-        "E-prescription and health record management system",
-        "Appointment tracking and notifications for patients",
-        "Using REACT_REDUX for state-management globally",
+         'Developed a healthcare management system that enables interaction between patients and doctors.',
+         'Built the backend server using Node.js and Express.js, with flexible routing and middleware support.',
+         'Designed an interactive user interface using React.js and Tailwind CSS with a component-based structure.',
+         'Used MongoDB to store patient records, doctor information, and chats.',
+         'Implemented authentication and authorization using email OTP, JWT tokens, and route-level middleware.',
+         'Developed an appointment booking system for patients to schedule consultations with doctors.',
+         'Added a real-time chat feature using WebSockets, enabling communication through an event-driven backend.'
       ],
     },
     {
@@ -73,38 +74,43 @@ const Projects = () => {
   ];
 
   return (
-   <div
+  <div
   id="projects"
   className="py-20 bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900"
 >
-  <h2 className="text-4xl font-bold text-center mb-14 text-white uppercase tracking-widest">
+  <h2 className="text-4xl font-bold text-center mb-16 text-white uppercase tracking-widest">
     Projects
   </h2>
 
-  <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
+  <div className="max-w-5xl mx-auto flex flex-col gap-10 px-6">
     {projects.map((project, index) => (
-      <div
-        key={index}
-        className="relative bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-      >
-        {/* Header */}
-        <div className="flex justify-between items-start mb-4">
-          <h3 className="text-xl font-bold text-white capitalize">
-            {project.name}
-          </h3>
-          <span className="text-xs font-semibold bg-white/20 text-white px-3 py-1 rounded-full">
-            Project
-          </span>
-        </div>
+  <div
+  key={index}
+  className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition duration-300"
+>
+  <div className="flex flex-col md:flex-row gap-10">
 
-        {/* Description */}
-        <p className="text-sm text-white/90 mb-4 leading-relaxed">
-          {project.description}
-        </p>
+    {/* LEFT SIDE INFO */}
+    <div className="flex-1">
 
-        {/* Tech Stack KPI */}
-        <div className="bg-white/15 rounded-xl p-3 mb-4">
-          <p className="text-xs text-white/70 uppercase tracking-wide">
+      <div className="flex justify-between items-start mb-4">
+        <h3 className="text-2xl font-bold text-white">
+          {project.name}
+        </h3>
+
+        <span className="text-xs font-semibold bg-white/20 text-white px-3 py-1 rounded-full">
+          Project
+        </span>
+      </div>
+
+      <p className="text-white/90 mb-5 leading-relaxed">
+        {project.description}
+      </p>
+
+      <div className="flex flex-wrap gap-8 mb-5">
+
+        <div>
+          <p className="text-xs text-white/70 uppercase">
             Tech Stack
           </p>
           <p className="text-sm font-semibold text-white">
@@ -112,9 +118,8 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* Role KPI */}
-        <div className="bg-white/15 rounded-xl p-3 mb-5">
-          <p className="text-xs text-white/70 uppercase tracking-wide">
+        <div>
+          <p className="text-xs text-white/70 uppercase">
             Role
           </p>
           <p className="text-sm font-semibold text-white">
@@ -122,29 +127,53 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* Action Links */}
-        <div className="flex justify-between items-center">
-          <a
-            href={project.githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-white text-sm font-medium hover:text-gray-200 transition"
-          >
-            <FaGithub size={18} />
-            Code
-          </a>
-
-          <a
-            href={project.deployLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-white text-indigo-700 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-100 transition"
-          >
-            <FaLink size={16} />
-            Live
-          </a>
-        </div>
       </div>
+
+      {/* LINKS */}
+      <div className="flex gap-6">
+        <a
+          href={project.githubLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-white font-medium hover:text-gray-200"
+        >
+          <FaGithub size={18} />
+          Code
+        </a>
+
+        <a
+          href={project.deployLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 bg-white text-indigo-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100"
+        >
+          <FaLink size={16} />
+          Live
+        </a>
+      </div>
+
+    </div>
+
+    {/* RIGHT SIDE FEATURES */}
+    <div className="flex-1 bg-black/30 rounded-xl p-5">
+
+      <h4 className="text-lg font-semibold text-white mb-3">
+        Key Features
+      </h4>
+
+      <ul className="text-gray-200 space-y-2 text-sm">
+        {project.features.map((feature, i) => (
+          <li key={i} className="flex gap-2">
+            <span>•</span>
+            <span>{feature}</span>
+          </li>
+        ))}
+      </ul>
+
+    </div>
+
+  </div>
+</div>
     ))}
   </div>
 </div>
